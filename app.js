@@ -41,7 +41,7 @@ function verificarEleccion(cantidadProductos, eleccion, accion){
     }
 }
 
-function calculoSumaProducto(valorEleccion){
+function calculoSumaProducto(valorEleccion){ //hacer el calculo de valor asi se va sumando.
 
 }
 
