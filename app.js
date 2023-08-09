@@ -34,7 +34,7 @@ function verificarEleccion(cantidadProductos, eleccion){
     while(correccion == false){
         if(eleccion > cantidadProductos || eleccion < 1){
             alert("Opcion invalida, elija una nueva opcion por favor");
-            break;
+            opcionCorrejida = 0;
         }else{
             correccion = true;
             opcionCorrejida = eleccion;
@@ -43,13 +43,21 @@ function verificarEleccion(cantidadProductos, eleccion){
     }
 }
 
+function cargaExitosa(opcionCorrecta){
+    if(opcionCorrecta != 0){
+        alert("Producto Agregado con Exito!");
+    }
+}
+
 function asignarPrecio(opcionElejida, p1, p2, p3){
     if(opcionElejida == 1){
         return p1;
     }else if(opcionElejida == 2){
         return p2;
-    }else{
+    }else if(opcionElejida ==3){
         return p3;
+    }else{
+        return 0;
     }
 }
 
@@ -63,7 +71,7 @@ do{
     + "Memorias RAM: 4" + "\n"
     + "Fuentes: 5" + "\n"
     + "Gabinete: 6" + "\n"
-    + "Salir: Cualquier Tecla"));
+    + "Salir: 0"));
 
     let opcionElejida;
     let precioOpcion;
@@ -80,7 +88,7 @@ do{
             precioOpcion = asignarPrecio(opcionElejida,89000, 126000, 189000);
             sumaTotal += precioOpcion;
 
-            alert("Producto Agregado con Exito!");
+            cargaExitosa(opcionElejida);
             break;
         case 2:
             eleccionComponente = Number(prompt("Elija un Componente:" + "\n"
@@ -147,8 +155,9 @@ do{
 
             alert("Producto Agregado con Exito!");
             break;
-        default:
+        case 0:
             alert("Monto total a cobrar: " + sumaTotal);
+            alert("Gracias por comprar aqui");
             finalizar = true;
     }
 
